@@ -7,7 +7,8 @@
 /* 
 	基于jquery的跑马灯插件，使用时先引入jquery插件
 	用法：$('xx').textScroll({trigger:'mouseenter',speed:30});
-	参数为一个对象，可缺省，trigger是一个字符串为触发方式，默认值为auto表示自动滚动，鼠标移入停止，可设置为mouseenter，此时为鼠标移入滚动，移出停止
+	参数为一个对象，可缺省，trigger是一个字符串为触发方式，默认值为auto表示自动滚动，鼠标移入停止，
+	可设置为mouseenter，此时为鼠标移入滚动，移出停止，设置为all，此时一直滚动不会停止
 	speed为数字表示滚动速度
 */
 
@@ -54,6 +55,8 @@ $.fn.textScroll = function(options){
 					clearInterval(timer1);
 					clearTimeout(timer2);
 				})
+			}else if(setting.trigger.toLowerCase() == 'all'){
+				beginScroll();
 			}
 		} catch(e) {
 			throw new Error(e);
